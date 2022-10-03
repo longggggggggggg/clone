@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!---->
+<odoo>
+    <record id="study_action" model="ir.actions.act_window">
+        <field name="name">Studys</field>
+        <field name="res_model">project.study</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>create first student</p>
+        </field>
+    </record>
+    <record id="project_study_tree_view" model="ir.ui.view">
+        <field name="name">project.studys</field>
+        <field name="model">project.study</field>
+        <field name="arch" type="xml">
+            <tree string="project.study">
+                <field name="name"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+    <record id="school_student_search" model="ir.ui.view">
+        <field name="name">school.student.search</field>
+        <field name="model">project.study</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="status"/>
+
+
+                        </group>
+                        <group>
+                            <field name="dateLine"/>
+                            <field name="note"/>
+                        </group>
+                        <field name="description"/>
+
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="enmasys_root"
+              web_icon="E:\pycharm\odoo\imeg\folder-upload.png"
+              name="Enmasys"
+              sequence="10"/>
+    <menuitem id="Enmasys_study_root"
+              name="Study"
+              parent="enmasys_root"
+              sequence="1"/>
+    <menuitem id="Enmasys_study"
+              name="Study"
+              parent="Enmasys_study_root"
+              action="study_action"
+              sequence="1"/>
+
+</odoo>
